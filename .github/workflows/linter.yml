@@ -45,11 +45,23 @@ jobs:
           fetch-depth: 0
 
       ################################
-      # Run Linter against code base #
+      # Run Linter PHP #
       ################################
       - name: Lint Code Base
-        uses: github/super-linter@v4
+        uses: github/super-linter:slim-v4
         env:
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_PHP: true
+          FILTER_REGEX_INCLUDE: .*app/*.php
+          FILTER_REGEX_EXCLUDE: .*vendor/*
+          OUTPUT_DETAILS: detailed
+          OUTPUT_FORMAT: tap
+
+       - name: artifact
+         uses: actions/upload-artifact@v1
+         if: always()
+         with:
+           name: reports
+           path: "${{ github.workspace }}/super-linter.report"
