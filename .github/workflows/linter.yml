@@ -16,10 +16,10 @@ name: Lint Code Base
 #############################
 on:
   push:
-    branches-ignore: [master]
+    branches-ignore: [ master ]
     # Remove the line above to run when pushing to master
   pull_request:
-    branches: [master]
+    branches: [ master ]
 
 ###############
 # Set the Job #
@@ -59,9 +59,9 @@ jobs:
           OUTPUT_DETAILS: detailed
           OUTPUT_FORMAT: tap
 
-       - name: artifact
-         uses: actions/upload-artifact@v1
-         if: always()
-         with:
-           name: reports
-           path: "${{ github.workspace }}/super-linter.report"
+      - name: artifact
+        uses: actions/upload-artifact@v1
+        if: always()
+        with:
+          name: reports
+          path: "${{ github.workspace }}/super-linter.report"
