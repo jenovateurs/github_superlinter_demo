@@ -55,5 +55,42 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_PHP: true
           VALIDATE_PHP_BUILTIN: true
-          FILTER_REGEX_INCLUDE: .*app/*.php
+          FILTER_REGEX_INCLUDE: .*app/.*php
 #          FILTER_REGEX_EXCLUDE: .*generatorPHP/*
+
+      ################################
+      # Run Linter Markdown #
+      ################################
+      - name: Lint Markdown code base
+        uses: docker://ghcr.io/github/super-linter:slim-v4
+        env:
+          VALIDATE_ALL_CODEBASE: true
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_MARKDOWN: true
+          FILTER_REGEX_INCLUDE: .*markdown/.*md
+
+      ################################
+      # Run Linter Python #
+      ################################
+      - name: Lint Python code base
+        uses: docker://ghcr.io/github/super-linter:slim-v4
+        env:
+          VALIDATE_ALL_CODEBASE: true
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_PYTHON: true
+          VALIDATE_PYTHON_PYLINT: true
+          FILTER_REGEX_INCLUDE: .*script/.*py
+
+      ################################
+      # Run Linter CSS #
+      ################################
+      - name: Lint CSS code base
+        uses: docker://ghcr.io/github/super-linter:slim-v4
+        env:
+          VALIDATE_ALL_CODEBASE: true
+          DEFAULT_BRANCH: main
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_CSS: true
+          FILTER_REGEX_INCLUDE: .*public/.*css
