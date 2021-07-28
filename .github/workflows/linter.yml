@@ -55,5 +55,5 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_PHP: true
           VALIDATE_PHP_BUILTIN: true
-#          FILTER_REGEX_INCLUDE: .*app/*.php
-          FILTER_REGEX_EXCLUDE: .*generatorPHP/*
+          FILTER_REGEX_INCLUDE: .*app/*.php
+#          FILTER_REGEX_EXCLUDE: .*generatorPHP/*

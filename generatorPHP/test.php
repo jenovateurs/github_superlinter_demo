@@ -1,5 +1,5 @@
 <?php
 
-echo 'test;';
+echo 'Un fichier a ne pas analyser';
 
 ?>
