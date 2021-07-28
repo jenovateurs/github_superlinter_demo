@@ -56,4 +56,4 @@ jobs:
           VALIDATE_PHP: true
           VALIDATE_PHP_BUILTIN: true
 #          FILTER_REGEX_INCLUDE: .*app/*.php
-#          FILTER_REGEX_EXCLUDE: .*vendor/*
+          FILTER_REGEX_EXCLUDE: .*generatorPHP/*
