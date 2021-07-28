@@ -1,7 +1,7 @@
 <?php
 
 class IndexController{
-    public function helloWorld(){
+    public function hello(){
         echo 'hello world';
     }
 }
