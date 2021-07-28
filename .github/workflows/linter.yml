@@ -54,6 +54,9 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_PHP: true
+          VALIDATE_PHP_BUILTIN: true
+          VALIDATE_PHP_PHPCS: true
+          VALIDATE_PHP_PHPSTAN: true
 #          FILTER_REGEX_INCLUDE: .*app/*.php
 #          FILTER_REGEX_EXCLUDE: .*vendor/*
 
