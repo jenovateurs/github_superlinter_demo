@@ -50,16 +50,10 @@ jobs:
       - name: Lint PHP code base
         uses: docker://ghcr.io/github/super-linter:slim-v4
         env:
-          VALIDATE_ALL_CODEBASE: false
+          VALIDATE_ALL_CODEBASE: true
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          VALIDATE_PHP: true
           VALIDATE_PHP_BUILTIN: true
 #          FILTER_REGEX_INCLUDE: .*app/*.php
 #          FILTER_REGEX_EXCLUDE: .*vendor/*
-
-      - name: artifact
-        uses: actions/upload-artifact@v1
-        if: always()
-        with:
-          name: reports
-          path: "${{ github.workspace }}/super-linter.log"
