@@ -56,7 +56,7 @@ jobs:
           VALIDATE_PHP: true
           VALIDATE_PHP_BUILTIN: true
           FILTER_REGEX_INCLUDE: .*app/.*php
-#          FILTER_REGEX_EXCLUDE: .*generatorPHP/*
+          FILTER_REGEX_EXCLUDE: .*generatorPHP/*
 
       ################################
       # Run Linter Markdown #
@@ -80,7 +80,7 @@ jobs:
           DEFAULT_BRANCH: main
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           VALIDATE_PYTHON: true
-          VALIDATE_PYTHON_PYLINT: true
+          VALIDATE_PYTHON_BLACK: true
           FILTER_REGEX_INCLUDE: .*script/.*py
 
       ################################
